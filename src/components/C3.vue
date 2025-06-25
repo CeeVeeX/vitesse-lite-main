@@ -1,12 +1,17 @@
 <script lang='ts' setup>
-onUpdated(() => {
-  console.log('C3 updated 内部')
+defineProps<{
+  name?: string
+  t: number
+}>()
+
+onMounted(() => {
+  console.log('C3 mounted')
 })
 </script>
 
 <template>
-  <div>
-    C3
+  <div m-1 px-1 style="border: 1px solid #fff;">
+    C3: {{ name }} {{ t }}
   </div>
 </template>
 

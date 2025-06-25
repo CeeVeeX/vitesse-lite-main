@@ -1,14 +1,23 @@
 <script lang='ts' setup>
-onUpdated(() => {
-  console.log('C1 updated 内部')
+defineProps<{
+  name?: string
+}>()
+
+onMounted(() => {
+  console.log('C1 mounted')
 })
 </script>
 
 <template>
-  <div>
-    C1
-    <div>
+  <div m-1 style="border: 10px solid #401313;">
+    <div px-1 bg-hex-401313>
+      C1: {{ name }}
+    </div>
+    <div p-1 bg-yellow>
       <slot />
+    </div>
+    <div p-1 bg-blue>
+      <slot name="extra" />
     </div>
   </div>
 </template>
