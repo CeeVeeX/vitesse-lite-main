@@ -14,7 +14,6 @@ export const widget = reactive<any>({
         props: {
           name: '0->1(更新)',
           style: {
-            height: '100px',
           },
         },
         slots: {
@@ -79,9 +78,9 @@ export const widget = reactive<any>({
 })
 
 setInterval(() => {
-  widget.slots.default[0].props.style.height = `${Math.random() * 1 + 300}px`
+  widget.slots.default[0].props.style.height = `${Math.random() * 10 + 300}px`
   widget.slots.default[1].props.t = Date.now()
-}, 100)
+}, 1000)
 
 setTimeout(() => {
   const uuid = Math.random().toString(36).substring(2, 15)
