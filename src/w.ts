@@ -78,13 +78,13 @@ export const widget = reactive<any>({
 })
 
 setInterval(() => {
-  widget.slots.default[0].props.style.height = `${Math.random() * 10 + 300}px`
+  widget.slots.default[0].props.style.height = `${Math.random() * 100 + 200}px`
   widget.slots.default[1].props.t = Date.now()
 }, 1000)
 
 setTimeout(() => {
   const uuid = Math.random().toString(36).substring(2, 15)
-  widget.slots.default.push({
+  const i = widget.slots.default.push({
     uuid: `${uuid}`,
     name: `C2`,
     props: {
@@ -94,6 +94,16 @@ setTimeout(() => {
       },
     },
   })
+
+  const timer = setInterval(() => {
+    widget.slots.default[i - 1].props.style.height = `${Math.random() * 100 + 30}px`
+
+    setTimeout(() => {
+      // Remove the component after 10 seconds
+      widget.slots.default.splice(i - 1, 1)
+      clearInterval(timer)
+    }, 10000)
+  }, 1000)
 }, 5000)
 
 setTimeout(() => {

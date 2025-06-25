@@ -83,7 +83,6 @@
           <C2 name="0->1->6" />
         </template>
       </C1>
-      <C3 name="0->2" />
     </C1>
   </main>
 </template>
